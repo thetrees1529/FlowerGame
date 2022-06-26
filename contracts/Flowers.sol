@@ -160,6 +160,11 @@ contract Flowers is ERC721Enumerable, Ownable {
         return flower.baseYieldRate + _getMetadataYieldRateBoost(flower.locationData.location);
     }
 
+    function getBaseYieldRate(uint tokenId) external view returns(uint) {
+        Flower storage flower = _flowers[tokenId];
+        return flower.baseYieldRate;
+    }
+
     function getClaimable(uint tokenId) public view returns(uint) {
         Flower storage flower = _flowers[tokenId];
         uint yieldRate = getYieldRate(tokenId);
