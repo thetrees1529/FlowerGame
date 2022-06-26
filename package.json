@@ -1,0 +1,17 @@
+{
+  "name": "flowers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.6.0",
+    "hardhat": "^2.9.9",
+    "solutils": "github:thetrees1529/solutils"
+  }
+}
