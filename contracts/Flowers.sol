@@ -157,7 +157,7 @@ contract Flowers is ERC721Enumerable, Ownable {
             !flower.locationData.inLocation ||
             waterLevel == 0
         ) return 0;
-        return flower.baseYieldRate + _getMetadataYieldRateBoost(flower.locationData.location);
+        return flower.baseYieldRate + getMetadataYieldRateBoost(flower.locationData.location);
     }
 
     function getBaseYieldRate(uint tokenId) external view returns(uint) {
@@ -291,7 +291,7 @@ contract Flowers is ERC721Enumerable, Ownable {
         require(_flowers[tokenId].locationData.inLocation, "Please remove flower from apartment before making this action.");
     }
 
-    function _getMetadataYieldRateBoost(Location storage location) internal view returns(uint boost) {
+    function getMetadataYieldRateBoost(Location memory location) public view returns(uint boost) {
         MetadataYieldRateBoost[] storage metadataYieldRateBoosts = _apartmentData[location.cAddr].metadataYieldRateBoosts;
         uint length = metadataYieldRateBoosts.length;
         for(uint i; i < length; i ++) {
